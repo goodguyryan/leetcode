@@ -1,0 +1,28 @@
+/*
+    Time Complexity: O(n);
+    Space Complexity: O(1);
+    Method Used: Linked List
+*/
+
+struct ListNode 
+{
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+ListNode* reverseList(ListNode* head) 
+{
+    ListNode* prev = nullptr;
+    ListNode* current = head;
+    while (current != nullptr)
+    {
+        ListNode* tmp = current->next;
+        current->next = prev;
+        prev = current;
+        current = tmp;
+    }   
+    return prev;     
+}
